@@ -1,0 +1,24 @@
+-Customer
+
+Hòa
+Login/logout/signup
+view/edit profile
+
+Duẩn + Được
+view list product/filter by category,sort by date
+add to cart(session)
+checkout
+view oder history/detail
+
+-admin/employee
+
+Huân
+crud product
+crud category
+
+Dũng
+crud account
+manager order 
+
+
+
