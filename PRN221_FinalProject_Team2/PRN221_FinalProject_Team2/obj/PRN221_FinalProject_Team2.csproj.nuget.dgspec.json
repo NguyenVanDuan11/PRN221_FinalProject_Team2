@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {}
+    "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {}
   },
   "projects": {
-    "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {
+    "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+        "projectUniqueName": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
         "projectName": "PRN221_FinalProject_Team2",
-        "projectPath": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
-        "packagesPath": "C:\\Users\\duocn\\.nuget\\packages\\",
-        "outputPath": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
+        "projectPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+        "packagesPath": "C:\\Users\\duan1\\.nuget\\packages\\",
+        "outputPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\duocn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duan1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Public\\Documents\\Infragistics\\NuGet\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
