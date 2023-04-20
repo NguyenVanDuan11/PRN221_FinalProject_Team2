@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\duan1\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
       "projectName": "PRN221_FinalProject_Team2",
-      "projectPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
-      "packagesPath": "C:\\Users\\duan1\\.nuget\\packages\\",
-      "outputPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\duan1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
