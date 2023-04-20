@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\duocn\\.nuget\\packages\\": {}
+    "C:\\Users\\dell\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "projectUniqueName": "C:\\PRN221\\ProjectPRN221\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
       "projectName": "PRN221_FinalProject_Team2",
-      "projectPath": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
-      "packagesPath": "C:\\Users\\duocn\\.nuget\\packages\\",
-      "outputPath": "D:\\project prn211\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
+      "projectPath": "C:\\PRN221\\ProjectPRN221\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+      "outputPath": "C:\\PRN221\\ProjectPRN221\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\duocn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\Public\\Documents\\Infragistics\\NuGet\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -65,8 +64,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\PRN221\\ProjectPRN221\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
