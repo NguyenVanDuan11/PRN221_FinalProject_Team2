@@ -2,3 +2,54 @@
 @model PRN221_FinalProject_Team2.Pages.Admin.Products.IndexModel
 @{
 }
+
+<h1 class="text-center">Manage Product</h1>
+
+<p>
+	<a class="btn btn-primary float-end" asp-page="Create">Create New</a>
+</p>
+
+@if (TempData["Exist"] != null)
+{
+	<span class="text-danger">@TempData["Exist"]</span>
+}
+
+@if (TempData["Success"] != null)
+{
+	<span class="text-success">@TempData["Success"]</span>
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Category</th>
+			<th>Quantity/Unit</th>
+			<th>Unit Price</th>
+			<th>Stocks</th>
+			<th>Orders</th>
+			<th>Discontinued</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.Products)
+		{
+			<tr>
+				<td>@item.ProductId</td>
+				<td>@item.ProductName</td>
+				<td>@item.Category.CategoryName</td>
+				<td>@item.QuantityPerUnit</td>
+				<td>@item.UnitPrice</td>
+				<td>@item.UnitsInStock</td>
+				<td>@item.UnitsOnOrder</td>
+				<td>@item.Discontinued</td>
+				<td>
+					<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+					<a class="btn btn-danger" asp-page="./Index" asp-page-handler="Delete" asp-route-id="@item.ProductId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
