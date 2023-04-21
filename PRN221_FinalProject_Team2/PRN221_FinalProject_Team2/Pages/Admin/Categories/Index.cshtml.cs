@@ -22,5 +22,23 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
             Categories = await _db.Categories.ToListAsync();
             return Page();
         }
+
+        public async Task<IActionResult> OnGetDelete(int id)
+        {
+            var checkExist = _db.Products.FirstOrDefault(p => p.CategoryId == id);
+            if(checkExist != null)
+            {
+				TempData["Exist"] = "Category is currently being used, can't delete the category!";
+                return RedirectToPage("Index");
+			}
+            var category = await _db.Categories.FindAsync(id);
+            if(category != null)
+            {
+                TempData["Success"] = "Delete successfully!";
+                _db.Categories.Remove(category);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToPage("Index");
+        }
     }
 }
