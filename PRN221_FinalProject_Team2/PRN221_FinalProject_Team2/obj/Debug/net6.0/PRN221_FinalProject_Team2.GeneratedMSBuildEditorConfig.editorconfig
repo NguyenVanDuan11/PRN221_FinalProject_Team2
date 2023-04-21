@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Ki7\PRN221BL5\Project\PRN221_FinalProject_Team2\PRN221_FinalProject_Team2\PRN221_FinalProject_Team2
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Admin/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Admin/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Admin/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +36,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Member/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXE9yZGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Member/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyXFByb2R1Y3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Sigup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lndXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ki7/PRN221BL5/Project/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/PRN221_FinalProject_Team2/Pages/Users/Create.cshtml]
