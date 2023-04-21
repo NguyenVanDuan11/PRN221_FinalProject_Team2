@@ -1,0 +1,34 @@
+﻿@page
+@model PRN221_FinalProject_Team2.Pages.SignupModel
+@{
+}
+<form method="post">
+    <h1>Register Account</h1>
+    <label>Email(*)</label>
+    <input type="email" asp-for="Account.Email" />
+    <br />
+    <label>Password(*)</label>
+    <input type="password" asp-for="Account.Password" />
+    <br />
+    <label>Re-Password(*)</label>
+    <input type="password" />
+    <br />
+
+    <label>Company Name(*)</label>
+    <input type="password" asp-for="Customer.CompanyName" />
+    <br />
+
+    <label>Contact Name(*)</label>
+    <input type="password" asp-for="Customer.ContactName" />
+    <br />
+
+    <label>Conctact Title(*)</label>
+    <input type="password" asp-for="Customer.ContactTitle" />
+    <br />
+
+    <label>Address(*)</label>
+    <input type="password" asp-for="Customer.Address" />
+    <br />
+    <input type="submit" value="Register" />
+</form>
+
