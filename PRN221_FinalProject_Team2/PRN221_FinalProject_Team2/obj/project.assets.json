@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\duan1\\.nuget\\packages\\": {}
+    "C:\\Users\\Nhat Anh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "projectUniqueName": "D:\\Ki7\\PRN221BL5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
       "projectName": "PRN221_FinalProject_Team2",
-      "projectPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
-      "packagesPath": "C:\\Users\\duan1\\.nuget\\packages\\",
-      "outputPath": "D:\\FULearning\\PRN221_bl_5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
+      "projectPath": "D:\\Ki7\\PRN221BL5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+      "packagesPath": "C:\\Users\\Nhat Anh\\.nuget\\packages\\",
+      "outputPath": "D:\\Ki7\\PRN221BL5\\Project\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\duan1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nhat Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -64,7 +70,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
