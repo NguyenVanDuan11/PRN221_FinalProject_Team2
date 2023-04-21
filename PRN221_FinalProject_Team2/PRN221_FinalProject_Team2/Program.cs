@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<PRN221DBContext>(option => option.UseSqlServer(
-    builder.Configuration.GetConnectionString("DBConnection")
+    builder.Configuration.GetConnectionString("PRN221DB")
     ));
 
 builder.Services.AddSession(x =>
