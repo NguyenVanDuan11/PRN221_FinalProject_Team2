@@ -1,27 +1,23 @@
 ﻿@page
 @model PRN221_FinalProject_Team2.Pages.LoginModel
-<section class="signin-page account">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="block text-center">
-                    <h2 class="text-center">Welcome Back</h2>
-                    <form class="text-left clearfix" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" name="password" required>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-main text-center">Login</button>
-                        </div>
-                    </form>
-                    <p class="mt-20">New in this site ?<a href="Register"> Create New Account</a></p>
-                    <p style="color: red">@ViewData["message"]</p>
+<div id="login-form">
+    <h2>Login system</h2>
+    @{
+        if (TempData["msg"] != null)
+        {
+            <p><span>@TempData["msg"]</span></p>
+        }
+    }
+    <form method="post">
+        <label>Email(*)</label>
+        <input asp-for="Account.Email" />
+        <span asp-validation-for="Account.Email"></span><br />
 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        <label>Password(*)</label>
+        <input asp-for="Account.Password" />
+        <span asp-validation-for="Account.Password"></span><br />
+        <label></label>
+
+        <input type="submit" value="SignIn" />
+    </form>
+</div>
