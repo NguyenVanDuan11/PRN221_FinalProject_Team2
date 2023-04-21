@@ -1,0 +1,23 @@
+﻿@page
+@model PRN221_FinalProject_Team2.Pages.LoginModel
+<div id="login-form">
+    <h2>Login system</h2>
+    @{
+        if (TempData["msg"] != null)
+        {
+            <p><span>@TempData["msg"]</span></p>
+        }
+    }
+    <form method="post">
+        <label>Email(*)</label>
+        <input asp-for="Account.Email" />
+        <span asp-validation-for="Account.Email"></span><br />
+
+        <label>Password(*)</label>
+        <input asp-for="Account.Password" />
+        <span asp-validation-for="Account.Password"></span><br />
+        <label></label>
+
+        <input type="submit" value="SignIn" />
+    </form>
+</div>
