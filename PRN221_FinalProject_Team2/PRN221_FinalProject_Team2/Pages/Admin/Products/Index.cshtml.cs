@@ -17,9 +17,28 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Products
 
         public List<Product> Products { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            Products = _db.Products.Include(c => c.Category).ToList();
+            Products = await _db.Products.Include(c => c.Category).ToListAsync();
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetDelete(int id)
+        {
+            var checkExist = _db.OrderDetails.FirstOrDefault(od => od.ProductId == id);
+            if(checkExist != null)
+            {
+                TempData["Exist"] = "Product is currently being used, can't delete the product!";
+                return RedirectToPage("Index");
+            }
+            var product = await _db.Products.FindAsync(id);
+            if(product != null)
+            {
+				TempData["Success"] = "Delete successfully!";
+				_db.Products.Remove(product);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToPage("Index");
         }
     }
 }

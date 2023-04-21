@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
 
 namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
@@ -16,9 +17,10 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
 
         public List<Category> Categories { get; set; }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            Categories = _db.Categories.ToList();
+            Categories = await _db.Categories.ToListAsync();
+            return Page();
         }
     }
 }

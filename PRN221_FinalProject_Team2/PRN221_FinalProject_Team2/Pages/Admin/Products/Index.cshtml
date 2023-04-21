@@ -3,11 +3,21 @@
 @{
 }
 
-<h1>Manage Product</h1>
+<h1 class="text-center">Manage Product</h1>
 
 <p>
-	<a class="btn btn-primary" asp-page="Create">Create New</a>
+	<a class="btn btn-primary float-end" asp-page="Create">Create New</a>
 </p>
+
+@if (TempData["Exist"] != null)
+{
+	<span class="text-danger">@TempData["Exist"]</span>
+}
+
+@if (TempData["Success"] != null)
+{
+	<span class="text-success">@TempData["Success"]</span>
+}
 
 <table class="table">
 	<thead>
@@ -15,6 +25,7 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Category</th>
+			<th>Quantity/Unit</th>
 			<th>Unit Price</th>
 			<th>Stocks</th>
 			<th>Orders</th>
@@ -29,14 +40,14 @@
 				<td>@item.ProductId</td>
 				<td>@item.ProductName</td>
 				<td>@item.Category.CategoryName</td>
+				<td>@item.QuantityPerUnit</td>
 				<td>@item.UnitPrice</td>
 				<td>@item.UnitsInStock</td>
 				<td>@item.UnitsOnOrder</td>
 				<td>@item.Discontinued</td>
 				<td>
 					<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
-					<a class="btn btn-info" asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-					<a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+					<a class="btn btn-danger" asp-page="./Index" asp-page-handler="Delete" asp-route-id="@item.ProductId">Delete</a>
 				</td>
 			</tr>
 		}
