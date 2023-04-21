@@ -33,6 +33,7 @@ namespace PRN221_FinalProject_Team2.Pages
             var member = await _db.Accounts.SingleOrDefaultAsync(a => a.Email.Equals(Account.Email) && a.Password.Equals(Account.Password));
             if (member != null)
             {
+                HttpContext.Session.SetString("Account", JsonSerializer.Serialize(member));
                 if (member.Role == 1)
                 {
                     HttpContext.Session.SetString("admin", JsonSerializer.Serialize(member));

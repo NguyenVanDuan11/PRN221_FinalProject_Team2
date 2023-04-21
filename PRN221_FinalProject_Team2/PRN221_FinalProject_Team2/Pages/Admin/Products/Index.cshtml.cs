@@ -1,20 +1,44 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using PRN221_FinalProject_Team2.Models;
 
 namespace PRN221_FinalProject_Team2.Pages.Admin.Products
 {
+    [BindProperties]
     public class IndexModel : PageModel
     {
-        public IActionResult OnGet()
+        private readonly PRN221DBContext _db;
+
+        public IndexModel(PRN221DBContext db)
         {
-            if (HttpContext.Session.GetString("admin") == null)
+            _db = db;
+        }
+
+        public List<Product> Products { get; set; }
+
+        public async Task<IActionResult> OnGetAsync()
+        {
+            Products = await _db.Products.Include(c => c.Category).ToListAsync();
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetDelete(int id)
+        {
+            var checkExist = _db.OrderDetails.FirstOrDefault(od => od.ProductId == id);
+            if(checkExist != null)
             {
-                return RedirectToPage("/Admin/Categories/Index");
+                TempData["Exist"] = "Product is currently being used, can't delete the product!";
+                return RedirectToPage("Index");
             }
-            else
+            var product = await _db.Products.FindAsync(id);
+            if(product != null)
             {
-                return RedirectToPage("/Admin/Products/Index");
+				TempData["Success"] = "Delete successfully!";
+				_db.Products.Remove(product);
+                await _db.SaveChangesAsync();
             }
+            return RedirectToPage("Index");
         }
     }
 }
