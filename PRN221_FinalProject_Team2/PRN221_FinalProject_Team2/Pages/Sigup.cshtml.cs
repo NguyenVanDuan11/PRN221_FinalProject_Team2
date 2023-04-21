@@ -15,8 +15,8 @@ namespace PRN221_FinalProject_Team2.Pages
             _context = context;
         }
         [BindProperty]
-        public Customer Customer { get; set; }
         public Account Account { get; set; }
+        public Customer Customer { get; set; }
         // GET: /Signup
         public IActionResult OnGet()
         {
@@ -39,27 +39,30 @@ namespace PRN221_FinalProject_Team2.Pages
             {
                 return Page();
             }
+            string customerId = Guid.NewGuid().ToString("n").Substring(0, 4).ToUpper();
             var newAcc = new Account()
             {
                 Email = Account.Email,
                 Password = Account.Password,
-                Customer = null,
+                CustomerId = customerId,
                 Role = 2
             };
 
             var newCus = new Customer()
             {
-                CustomerId = "ABC",
-                CompanyName = Customer.CompanyName,
-                ContactName = Customer.ContactName,
-                ContactTitle = Customer.ContactTitle,
-                Address = Customer.Address,
+                CustomerId = customerId,
+                CompanyName = "Hoa",
+                ContactName = null,
+                ContactTitle = null,
+                Address = null,
             };
-            
-            
+
+            _context.Customers.AddAsync(newCus);
+            await _context.SaveChangesAsync();
+
+            newAcc.CustomerId = newCus.CustomerId;
 
             _context.Accounts.AddAsync(newAcc);
-            _context.Customers.AddAsync(newCus);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("/Login");
