@@ -11,7 +11,7 @@ namespace PRN221_FinalProject_Team2.Models
         [EmailAddress(ErrorMessage = "Invalid format email.")]
         public string? Email { get; set; }
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Invalid password.")]
+        [Required(ErrorMessage = "Password is required.")]
         public string? Password { get; set; }
         
         public string? CustomerId { get; set; }

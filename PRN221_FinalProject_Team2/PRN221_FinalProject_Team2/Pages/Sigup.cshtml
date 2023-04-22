@@ -2,33 +2,56 @@
 @model PRN221_FinalProject_Team2.Pages.SignupModel
 @{
 }
-<form method="post">
-    <h1>Register Account</h1>
-    <label>Email(*)</label>
-    <input type="email" asp-for="Account.Email" />
-    <br />
-    <label>Password(*)</label>
-    <input type="password" asp-for="Account.Password" />
-    <br />
-    <label>Re-Password(*)</label>
-    <input type="password" />
-    <br />
+<div class="sigup">
+    <form method="post">
+        <h1>Register Account</h1>
+        <input type="email" asp-for="Account.Email" placeholder="Email"/>
+        <br />
+        <input type="password" asp-for="Account.Password" placeholder="Password" />
+        <br />
+        <input type="password" placeholder="Re-Password" />
+        <br />
+        <button type="submit" value="Register">Register</button>
+    </form>
+</div>
 
-    <label>Company Name(*)</label>
-    <input type="password" asp-for="Customer.CompanyName" />
-    <br />
+<style>
+    .sigup {
+        width: 400px;
+        height: 400px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 400px;
+    }
 
-    <label>Contact Name(*)</label>
-    <input type="password" asp-for="Customer.ContactName" />
-    <br />
+    h2 {
+        margin-top: 20px;
+        color: #868787;
+        font-family: sans-serif;
+    }
 
-    <label>Conctact Title(*)</label>
-    <input type="password" asp-for="Customer.ContactTitle" />
-    <br />
+    .sigup input {
+        width: 200px;
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
 
-    <label>Address(*)</label>
-    <input type="password" asp-for="Customer.Address" />
-    <br />
-    <input type="submit" value="Register" />
-</form>
+    .sigup button {
+        width: 220px;
+        height: 40px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        border-radius: 10px;
+        border: none;
+        background-color: #45a049;
+        color: white;
+    }
+
+    .sigup button:hover {
+        font-size: 15px;
+    }
+</style>
 
