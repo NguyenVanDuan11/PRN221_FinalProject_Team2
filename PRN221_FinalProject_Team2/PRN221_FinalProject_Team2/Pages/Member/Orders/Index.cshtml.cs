@@ -19,6 +19,10 @@ namespace PRN221_FinalProject_Team2.Pages.Member.Orders
 
 
         }
+        [BindProperty]
+        public int Page { get; set; }
+        [BindProperty]
+        public int NumberPage { get; set; }
         public Account acc { get; set; }
         
         [BindProperty]
@@ -30,7 +34,7 @@ namespace PRN221_FinalProject_Team2.Pages.Member.Orders
         public List<Order> orders { get; set; }
         [BindProperty]
         public List<OrderDetail> orderdetail { get; set; }
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int? pageIndex)
         {
             string data = HttpContext.Session.GetString("Account");
             if (data != null)
@@ -40,17 +44,29 @@ namespace PRN221_FinalProject_Team2.Pages.Member.Orders
                 {
                     if (acount.CustomerId != null)
                     {
+
                         acc = acount;
                         var oderdetails = await _context.OrderDetails.Include(x => x.Order).Include(x => x.Product).
                             Where(x => x.Order.CustomerId == acount.CustomerId).
                             OrderByDescending(x => x.Order.OrderDate).ToListAsync();
-
+                       
                         var orderSort = await _context.Orders
                        .Where(x => x.CustomerId == acount.CustomerId)
                        .OrderByDescending(x => x.OrderDate)
                         .ToListAsync();
-                        orders = orderSort;
+                      //  orders = orderSort;
                         orderdetail = oderdetails;
+
+                        int unitpageSize = 6;
+                        pageIndex = pageIndex ?? 1;
+                        Page = pageIndex.Value;
+                        int total = orderSort.Count;
+                        NumberPage = (int)Math.Ceiling((double)total / (double)unitpageSize);
+
+                        orders = await _context.Orders
+                       .Where(x => x.CustomerId == acount.CustomerId)
+                       .OrderByDescending(x => x.OrderDate).Skip((pageIndex.Value - 1) * unitpageSize).Take(unitpageSize)
+                        .ToListAsync();
 
                         return Page();
                     }
@@ -70,8 +86,28 @@ namespace PRN221_FinalProject_Team2.Pages.Member.Orders
         }
         public async Task<IActionResult> OnPost(string id)
         {
+            string data = HttpContext.Session.GetString("Account");
+            if (data != null)
+            {
+                Account acount = JsonSerializer.Deserialize<Account>(data);
+                if (acount != null)
+                {
+                    if (acount.CustomerId != null)
+                    {
+                        acc = acount;
+                       
 
-            return Page();
+                        return Page();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+
+            return NotFound();
+
         }
     }
 
