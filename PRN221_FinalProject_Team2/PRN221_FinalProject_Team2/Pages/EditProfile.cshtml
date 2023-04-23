@@ -1,0 +1,12 @@
+﻿@page
+@model PRN221_FinalProject_Team2.Pages.EditProfileModel
+@{
+}
+
+<form method="post">
+    Email<input type="text" asp-for="@Model.Account.Email"/>
+    Password<input type="text" asp-for="@Model.Account.Password" />
+    CompanyName<input type="text" asp-for="@Model.Customer.CompanyName" />
+    <input type="submit"  value="Edit"/>
+
+</form>

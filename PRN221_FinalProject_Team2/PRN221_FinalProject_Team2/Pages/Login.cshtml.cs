@@ -41,6 +41,7 @@ namespace PRN221_FinalProject_Team2.Pages
                 if (member.Role == 2)
                 {
                     HttpContext.Session.SetString("customer", JsonSerializer.Serialize(member));
+                    HttpContext.Session.SetString("email",member.Email);
                     return RedirectToPage("./Member/Orders/Index");
                 }
             }
