@@ -29,7 +29,6 @@ namespace PRN221_FinalProject_Team2.Pages
             pageIndex = pageIndex ?? 1;
             page = pageIndex.Value;
             int total = _db.Products
-                .Include(x => x.Category)
                 .Where(x => x.Discontinued == false)
                 .Count();
             numberPage = (int)Math.Ceiling((double)total / (double)pageSize);
@@ -40,7 +39,6 @@ namespace PRN221_FinalProject_Team2.Pages
                 .Take(pageSize)                
                 .ToList();
 
-            var a = Convert.ToBase64String(products.First().Category.Picture);
             return Page();
         }
     }
