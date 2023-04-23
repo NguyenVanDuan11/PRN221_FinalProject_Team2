@@ -17,10 +17,32 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Products
 
         public List<Product> Products { get; set; }
 
-        public async Task<IActionResult> OnGetAsync()
+        public int Page { get; set; }
+
+        public int NumberPage { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? pageIndex, string? name)
         {
-            Products = await _db.Products.Include(c => c.Category).ToListAsync();
-            return Page();
+            if(HttpContext.Session.GetString("admin") != null)
+            {
+				int pageSize = 6;
+
+				pageIndex = pageIndex ?? 1;
+
+				Page = pageIndex.Value;
+
+				int total = _db.Products.Include(c => c.Category).Count();
+
+				NumberPage = (int)Math.Ceiling((double)total / (double)pageSize);
+
+				Products = await _db.Products.Include(c => c.Category).Skip((pageIndex.Value - 1) * pageSize).Take(pageSize).ToListAsync();
+
+				return Page();
+			}
+            else
+            {
+				return RedirectToPage("/Index");
+			}
         }
 
         public async Task<IActionResult> OnGetDelete(int id)
