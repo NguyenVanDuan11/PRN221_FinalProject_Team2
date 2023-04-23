@@ -1,4 +1,110 @@
 ﻿@page
 @model PRN221_FinalProject_Team2.Pages.Member.Orders.IndexModel
-@{
-}
+<h2>Order History</h2>
+<form method="post">
+    <div class="row ps-2 pb-2 pt-3">
+        <div class="col-4 d-flex justify-content-end">
+
+            <label class="pt-2">Start orderdate :</label>
+            <input type="date" class="pt-2 ps-2" asp-for="StartDate" />
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <label class ="pt-2">End orderdate :</label>
+            <input type="date" class="pt-2 ps-2" asp-for="EndDate" />
+            <input type="submit" class="pt-2 ms-2" style="width:80px" value="Filter" />
+            
+            
+        </div>
+        <div class="col"></div>
+    </div>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>Order Date</th>
+            <th>Ruqruired Date</th>
+            <th>Shipped Date</th>
+            <th>Feight</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var iteam in Model.orders)
+        {
+            var oderdetailss = Model.orderdetail.Where(x => x.OrderId == @iteam.OrderId).ToList();
+            <tr>
+                @*<td>Order Id:<a asp-page="Detail" asp-route-id="@iteam.OrderId">@iteam.OrderId</a></td>*@
+                <td>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse-@iteam.OrderId" role="button" aria-expanded="false" aria-controls="collapse-@iteam.OrderId">
+                        Order Id: @iteam.OrderId
+                    </a>
+                <td>Order Date:@iteam.OrderDate?.ToString("dd-MM-yyyy")</td>
+                <td>Ruqruired Date:@iteam.RequiredDate?.ToString("dd-MM-yyyy")</td>
+                <td>Shipped Date:@iteam.ShippedDate?.ToString("dd-MM-yyyy")</td>
+
+                <td>Feight:@iteam.Freight</td>
+                <td>
+                        @if (iteam.ShippedDate.HasValue)
+                        {
+                            if (iteam.ShippedDate <= iteam.RequiredDate)
+                            {
+                            <span class="badge bg-success">Shipped</span>
+                            }
+                            else
+                            {
+                            <span class="badge bg-warning text-dark">Shipped Late</span>
+                            }
+                        }
+                        else
+                        {
+                            if (iteam.RequiredDate < DateTime.Today)
+                            {
+                            <span class="badge bg-danger">Out of Date</span>
+                            }
+                            else
+                            {
+                            <span class="badge bg-info">Shipping</span>
+                            }
+                        }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div class="collapse" id="collapse-@iteam.OrderId">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>OrderId</td>
+                                    <td>Product Id</td>
+                                    <td>Product Name</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                    <td></td>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var it in oderdetailss)
+                                {
+                                    <tr>
+                                        
+                                        <td><a asp-page="Detail" asp-route-id="@iteam.OrderId" asp-route-pid="@it.ProductId">@iteam.OrderId</a></td>
+                                        <td>@it.ProductId</td>
+                                        <td>@it.Product.ProductName</td>
+                                        <td>@it.UnitPrice</td>
+                                        <td>@it.Quantity</td>
+                                        <td><a asp-page="Detail" asp-route-id="@iteam.OrderId" asp-route-pid="@it.ProductId">ReOrder</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
