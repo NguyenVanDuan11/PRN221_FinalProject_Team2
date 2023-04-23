@@ -1,6 +1,8 @@
 ﻿@page
 @model PRN221_FinalProject_Team2.Pages.Admin.Products.IndexModel
 @{
+	var selectedPage = Model.Page;
+	var numberPage = Model.NumberPage;
 }
 
 <h1 class="text-center">Manage Product</h1>
@@ -53,3 +55,28 @@
 		}
 	</tbody>
 </table>
+
+@if(Model.Products.Count != 0)
+{
+	<div class="mt-2">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item @(selectedPage == 1 ? "disabled" : "") mr-5">
+					<a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="1" aria-disabled="true" role="button">First</a>
+				</li>
+				<li class="page-item @(selectedPage == 1 ? "disabled" : "")">
+					<a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@(selectedPage - 1)" aria-disabled="true" role="button">Previous</a>
+				</li>
+				<li class="page-item">
+					<a class="page-link btn btn-primary btn-lg" aria-disabled="true" role="button">@selectedPage/@numberPage</a>
+				</li>
+				<li class="page-item @(selectedPage == numberPage ? "disabled" : "")">
+					<a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@(selectedPage + 1)" aria-disabled="true" role="button">Next</a>
+				</li>
+				<li class="page-item @(selectedPage == numberPage ? "disabled" : "")">
+					<a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@numberPage" aria-disabled="true" role="button">Last</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+}
