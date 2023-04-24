@@ -19,7 +19,14 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
 
 		public async Task<IActionResult> OnGetAsync()
 		{
-			return Page();
+			if(HttpContext.Session.GetString("admin") != null)
+			{
+				return Page();
+			}
+			else
+			{
+				return RedirectToPage("/Error");
+			}
 		}
 
 		public async Task<IActionResult> OnPostAsync()

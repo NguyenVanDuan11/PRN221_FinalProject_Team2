@@ -2,10 +2,46 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var listProduct = Model.products;
+    var pageSelected = Model.page;
+    var numberPage = Model.numberPage;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>List of Product</h1>
+<button class="btn-toolbar">
+    <a class="align-content-center" style="text-decoration : none" asp-page="Search">
+        Search for Products
+    </a>
+</button>
+<div class="container-fluid" style="margin-top : 50px">
+    <div class="row">
+        <div class="col-lg-12 title">
+            <div class="row">
+                @foreach (Product product in listProduct)
+                {
+                    <div class="col-lg-3 text-center" style="margin-bottom : 50px">
+                        <h5>@product.ProductName</h5>
+                        @*<img src="data:image/jpg;base64,@(Convert.ToBase64String(product.Category.Picture))" alt="image" width="100" height="100"/>*@
+                        <p>Price: $@(Math.Round(product.UnitPrice.Value, 2))</p>
+                        <button><a class="align-content-center" style="text-decoration : none" href="Detail?ProductID=@product.ProductId">Detail</a></button>
+                        <button><a class="align-content-center" style="text-decoration : none" href="AddCart?ProductID=@product.ProductId">Add to Cart</a></button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @if (listProduct.Count != 0)
+    {
+
+        <nav aria-label="Page navigation example" style="margin-top : 50px">
+            <ul class="pagination justify-content-center" style="">
+                <li class="page-item @(pageSelected == 1? "disabled" : "")"><a class="page-link btn btn-primary btn-lg @(pageSelected == 1? "disabled" : "")" href="Index?pageIndex=1" aria-disabled="true" role="button">First</a></li>
+                <li class="page-item @(pageSelected == 1? "disabled" : "")"><a class="page-link btn btn-primary btn-lg @(pageSelected == 1? "disabled" : "")" href="Index?pageIndex=@(pageSelected-1)" aria-disabled="true" role="button">Previous</a></li>
+                <li class="page-item"><a class="page-link btn btn-primary btn-lg" href="" aria-disabled="true" role="button">@pageSelected/@numberPage </a></li>
+                <li class="page-item @(pageSelected == numberPage? "disabled" : "")"><a class="page-link btn btn-primary btn-lg @(pageSelected == numberPage? "disabled" : "")" href="Index?pageIndex=@(pageSelected + 1)" aria-disabled="true" role="button">Next</a></li>
+                <li class="page-item @(pageSelected == numberPage? "disabled" : "")"><a class="page-link btn btn-primary btn-lg @(pageSelected == numberPage? "disabled" : "")" href="Index?pageIndex=@numberPage" aria-disabled="true" role="button">Last</a></li>
+            </ul>
+        </nav>
+    }
 </div>
-<h1>Page Indexx</h1>
+

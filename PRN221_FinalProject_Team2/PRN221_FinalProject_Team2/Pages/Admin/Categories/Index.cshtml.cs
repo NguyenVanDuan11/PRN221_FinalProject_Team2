@@ -19,8 +19,15 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
 
         public async Task<IActionResult> OnGetAsync()
         {
-            Categories = await _db.Categories.ToListAsync();
-            return Page();
+            if(HttpContext.Session.GetString("admin") != null)
+            {
+				Categories = await _db.Categories.ToListAsync();
+				return Page();
+			}
+            else
+            {
+                return RedirectToPage("/Error");
+            }
         }
 
         public async Task<IActionResult> OnGetDelete(int id)
