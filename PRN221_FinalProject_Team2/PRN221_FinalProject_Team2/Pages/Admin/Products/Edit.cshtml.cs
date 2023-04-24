@@ -27,7 +27,7 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Products
 			}
             else
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Error");
             }
         }
 
