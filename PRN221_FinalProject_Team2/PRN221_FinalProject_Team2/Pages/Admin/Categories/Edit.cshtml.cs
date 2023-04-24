@@ -19,8 +19,15 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
 
 		public async Task<IActionResult> OnGetAsync(int id)
 		{
-			Category = await _db.Categories.FindAsync(id);
-			return Page();
+			if(HttpContext.Session.GetString("admin") != null)
+			{
+				Category = await _db.Categories.FindAsync(id);
+				return Page();
+			}
+			else
+			{
+				return RedirectToPage("/Index");
+			}
 		}
 
 		public async Task<IActionResult> OnPostAsync()

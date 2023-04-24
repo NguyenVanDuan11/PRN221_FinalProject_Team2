@@ -19,8 +19,15 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Products
 
         public async Task<IActionResult> OnGetAsync()
         {
-            ViewData["Category"] = new SelectList(_db.Categories, "CategoryId", "CategoryName");
-            return Page();
+            if(HttpContext.Session.GetString("admin") != null)
+            {
+				ViewData["Category"] = new SelectList(_db.Categories, "CategoryId", "CategoryName");
+				return Page();
+			}
+            else
+            {
+                return RedirectToPage("/Index");
+            }
         }
 
         public async Task<IActionResult> OnPostAsync()
