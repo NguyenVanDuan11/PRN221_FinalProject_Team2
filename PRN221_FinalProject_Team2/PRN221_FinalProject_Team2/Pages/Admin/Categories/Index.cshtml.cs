@@ -26,7 +26,7 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Categories
 			}
             else
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Error");
             }
         }
 
