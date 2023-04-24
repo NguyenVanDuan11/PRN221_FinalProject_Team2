@@ -22,6 +22,7 @@ namespace PRN221_FinalProject_Team2.Pages
         [BindProperty]
         public Account Account { get; set; }
         public Customer Customer { get; set; }
+        public Employee Employee { get; set; }
 
 
         public IActionResult OnGet()
@@ -29,8 +30,11 @@ namespace PRN221_FinalProject_Team2.Pages
             //string? email = HttpContext.Session.GetString("email");
             string? customer = HttpContext.Session.GetString("customer");
             string? admin = HttpContext.Session.GetString("admin");
+            
             if (customer == null || admin != null)
             {
+                //CRUD Account
+                
                 return NotFound();
             }
             Account acc = JsonSerializer.Deserialize<Account>(customer);

@@ -19,13 +19,14 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ml-auto">
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Privacy">Privacy</a>
-                        </li>
+                        </li>*@
 
                         @{
                             string? admin = Context.Session.GetString("admin");
                             string? customer = Context.Session.GetString("customer");
+                            string? email = Context.Session.GetString("email");
                         }
                         
                         @if (admin == null && customer == null)
@@ -37,18 +38,27 @@
                                 <a class="nav-link text-light" asp-page="/Login" style="margin-left: 800px">Login</a>
                             </li>
                         }
+                        
+                        
+                        
+
                         @if (admin != null || customer != null)
                         {
-                            <li class="nav-link text-light nav-item"><a href="/Logout" style="margin-left: 1000px">Logout</a></li>
-                            
+                            <div class="dropdown" style="margin-left: 1000px">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Welcome @email
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="EditProfile">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My order</a></li>
+                                    <li><a class="dropdown-item" href="Logout">Logout</a></li>
+                                </ul>
+                            </div>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="your-page.html"><img src="your-image.jpg" alt="">Cart</a>
+                            </li>
                         }
-                        @if (admin == null && customer != null)
-                        {
-                            <li class="nav-link text-light nav-item"><a href="/EditProfile">Profile</a></li>
-                        }
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="your-page.html"><img src="your-image.jpg" alt="">Cart</a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -67,10 +77,10 @@
         </div>
     </footer>*@
     <footer class="text-center text-lg-start text-dark footer" 
-            style="background-color: #ECEFF1">
+            style="background-color: #3B3836">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-between p-2 text-white"
-                 style="background-color: darkslategrey">
+                 style="background-color: dark">
             <!-- Left -->
             <div class="me-3">
                 <span>Group 2</span>
@@ -101,7 +111,7 @@
         </section>
         <!-- Section: Social media -->
         <!-- Section: Links  -->
-        <section class="">
+        <section class="" style="">
             <div class="container text-center text-md-start">
                 <!-- Grid row -->
                 <div class="row mt-3">
@@ -143,19 +153,19 @@
                         @*<hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />*@
                         <p>
-                            <a href="#!" class="text-dark">1</a>
+                            <a href="#!" class="text-dark">Dung Peo</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">2</a>
+                            <a href="#!" class="text-dark">Huan Nguyen</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">3</a>
+                            <a href="#!" class="text-dark">Ngoc Hoa</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">4</a>
+                            <a href="#!" class="text-dark">Nguyen Duoc</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">5</a>
+                            <a href="#!" class="text-dark">Van Duan</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -179,8 +189,8 @@
         <!-- Copyright -->
         <div class="text-center p-3"
              style="background-color: rgba(0, 0, 0, 0.2)">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            @*© 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>*@
         </div>
         <!-- Copyright -->
     </footer>
