@@ -2,11 +2,87 @@
 @model PRN221_FinalProject_Team2.Pages.EditProfileModel
 @{
 }
+<section class="products section bg-gray" style="height: 100vh">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 title text-center">
+                <ul class="list-group">
+                    <li class="list-group-item" style="margin-left: 5%;background-color: #1bbb1b"><a href="EditProfile">Edit profile</a></li>
+                    <li class="list-group-item" style="margin-left: 5%"><a href="ChangePassword">Change password</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-9 title text-center" style="margin-left: 4%">
+                <h2 class="text-center">Profile</h2>
+                <p style="color:red">@ViewData["message"]</p>
+                <p style="color:green">@ViewData["mess"]</p>
+                <form method="post" class="text-left clearfix">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Role" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Customer.CustomerId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.AccountId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Customer.CustomerId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Customer" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Password" /><br />
+                    </div>
 
-<form method="post">
-    Email<input type="text" asp-for="@Model.Account.Email"/>
-    Password<input type="text" asp-for="@Model.Account.Password" />
-    CompanyName<input type="text" asp-for="@Model.Customer.CompanyName" />
-    <input type="submit"  value="Edit"/>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input type="hidden" asp-for="@Model.Account.Email" placeholder="Email" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Customer.CompanyName" placeholder="Company Name" class="form-control" />
+                                    <label>Company Name</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Customer.ContactName" placeholder="Contact Name" class="form-control" />
+                                    <label>Contact Name</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Customer.ContactTitle" placeholder="Contact Title" class="form-control">
+                                    <label>Contact Title</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Customer.Address" placeholder="Address" class="form-control" id="address">
+                                    <label for="address">Address</label>
+                                </div>
+                            </div>
 
-</form>
+                        </div>
+                    </div>
+                    @{
+                        if (TempData["msg"] != null)
+                        {
+                            <p><span style="color: green">@TempData["msg"]</span></p>
+                        }
+                    }
+
+                    <div class="text-center" style="margin-top:50px;">
+                        <input type="submit" value="Update" style="background-color: forestgreen" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -27,10 +27,7 @@
                             string? admin = Context.Session.GetString("admin");
                             string? customer = Context.Session.GetString("customer");
                         }
-                        @if (admin != null || customer != null)
-                        {
-                            <li class="nav-link text-light"><a asp-page="/Logout">Logout</a></li>
-                        }
+                        
                         @if (admin == null && customer == null)
                         {
                             @*<li class="nav-item">
@@ -39,6 +36,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-page="/Login" style="margin-left: 800px">Login</a>
                             </li>
+                        }
+                        @if (admin != null || customer != null)
+                        {
+                            <li class="nav-link text-light nav-item"><a href="/Logout" style="margin-left: 1000px">Logout</a></li>
+                            
+                        }
+                        @if (admin == null && customer != null)
+                        {
+                            <li class="nav-link text-light nav-item"><a href="/EditProfile">Profile</a></li>
                         }
                         <li class="nav-item">
                             <a class="nav-link text-light" href="your-page.html"><img src="your-image.jpg" alt="">Cart</a>

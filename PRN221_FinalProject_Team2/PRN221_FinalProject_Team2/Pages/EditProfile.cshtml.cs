@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
 using System;
 using System.Diagnostics;
+using System.Net;
 using System.Text.Json;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace PRN221_FinalProject_Team2.Pages
 {
@@ -41,10 +43,13 @@ namespace PRN221_FinalProject_Team2.Pages
             Customer = Account.Customer;
             return Page();
         }
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            
+            _db.Attach(Account).State = EntityState.Modified;
+            _db.Attach(Account.Customer).State = EntityState.Modified;
 
+            await _db.SaveChangesAsync();
+            TempData["msg"] = "You update profile success!";
             return Page();
         }
     }
