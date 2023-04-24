@@ -2,16 +2,16 @@
 @model PRN221_FinalProject_Team2.Pages.Member.Orders.IndexModel
 
 <h2>Order History</h2>
-<form method="post">
+<form method="get" >
     <div class="row ps-2 pb-2 pt-3">
         <div class="col-4 d-flex justify-content-end">
 
             <label class="pt-2">Start orderdate :</label>
-            <input type="date" class="pt-2 ps-2" asp-for="StartDate" />
+            <input name="d1" type="date" class="pt-2 ps-2" value="@Model.StartDate" />
         </div>
         <div class="col-6 d-flex justify-content-center">
             <label class ="pt-2">End orderdate :</label>
-            <input type="date" class="pt-2 ps-2" asp-for="EndDate" />
+            <input name="d2" type="date" class="pt-2 ps-2" value="@Model.EndDate" />
             <input type="submit" class="pt-2 ms-2" style="width:80px" value="Filter" />
             
             
@@ -112,6 +112,8 @@
 @{
     var selectedPage = Model.Page;
     var numberPage = Model.NumberPage;
+    var stdate = @Model.StartDate;
+    var edate = @Model.EndDate;
 }
 @if (Model.orders.Count != 0)
 {
@@ -119,19 +121,19 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item @(selectedPage == 1 ? "disabled" : "") mr-5">
-                    <a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="1" aria-disabled="true" role="button">First</a>
+                    <a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-d1="@stdate" asp-route-d2="@edate" asp-route-pageIndex="1" aria-disabled="true" role="button">First</a>
                 </li>
                 <li class="page-item @(selectedPage == 1 ? "disabled" : "")">
-                    <a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@(selectedPage - 1)" aria-disabled="true" role="button">Previous</a>
+                    <a class="page-link btn btn-primary btn-lg @(selectedPage == 1 ? "disabled" : "")" asp-page="Index" asp-route-d1="@stdate" asp-route-d2="@edate" asp-route-pageIndex="@(selectedPage - 1)" aria-disabled="true" role="button">Previous</a>
                 </li>
                 <li class="page-item">
                     <a class="page-link btn btn-primary btn-lg" aria-disabled="true" role="button">@selectedPage/@numberPage</a>
                 </li>
                 <li class="page-item @(selectedPage == numberPage ? "disabled" : "")">
-                    <a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@(selectedPage + 1)" aria-disabled="true" role="button">Next</a>
+                    <a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-d1="@stdate" asp-route-d2="@edate" asp-route-pageIndex="@(selectedPage + 1)" aria-disabled="true" role="button">Next</a>
                 </li>
                 <li class="page-item @(selectedPage == numberPage ? "disabled" : "")">
-                    <a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-pageIndex="@numberPage" aria-disabled="true" role="button">Last</a>
+                    <a class="page-link btn btn-primary btn-lg @(selectedPage == numberPage ? "disabled" : "")" asp-page="Index" asp-route-d1="@stdate" asp-route-d2="@edate" asp-route-pageIndex="@numberPage" aria-disabled="true" role="button">Last</a>
                 </li>
             </ul>
         </nav>
