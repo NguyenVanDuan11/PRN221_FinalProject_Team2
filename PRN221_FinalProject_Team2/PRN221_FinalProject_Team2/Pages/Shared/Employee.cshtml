@@ -1,73 +1,84 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PRN221_FinalProject_Team2</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PRN221_FinalProject_Team2.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-kHm+po9XnD+1gkg/mW8fhvJ07/7+LXTQdCw+PdnFvTJx9X+NoA+K11kV8+e16jSw" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
-<body>
-    <header class="header">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Privacy">Privacy</a>
-                        </li>
-
-                        @{
-                            string? admin = Context.Session.GetString("admin");
-                            string? customer = Context.Session.GetString("customer");
-                        }
-                        @if (admin != null || customer != null)
-                        {
-                            if (admin != null)
-                            {
-                                <li class="nav-item"><a class="nav-link  text-light" asp-area="" asp-page="/Users/Index">Account</a></li>
-                                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Admin/Orders/Index">Order</a></li>
-                            }
-                            <li class="nav-link text-light"><a asp-page="/Logout">Logout</a></li>
-                        }
-                        @if (admin == null && customer == null)
-                        {
-                            @*<li class="nav-item">
-                                <a class="nav-link text-light" asp-page="/Sigup" style="margin-left: 200px">Register</a>
-                            </li>*@
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-page="./Login" style="margin-left: 800px">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="your-page.html"><img src="your-image.jpg" alt="">Cart</a>
-                            </li>
-                        }
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - PRN221_FinalProject_Team2 - <a asp-area="" asp-page="/Privacy">Privacy</a>
-
+<body class="vh-100">
+   
+    <div class=" d-flex vh-100">
+        <div class="col-2  nav flex-column nav-pills align-items-center pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color:cadetblue;border-right-color:black">
+            <a class="nav-link" style="color:white" id="v-pills-Dashboard" data-toggle="pill" asp-page="/Admin/Dashboard" asp-page-handler="">Dashboard</a>
+            <a class="nav-link" style="color:white" id="v-pills-Products" data-toggle="pill" asp-page="/Admin/Products/Index" asp-page-handler="">Manager Product</a>
+            <a class="nav-link" style="color:white" id="v-pills-Order" data-toggle="pill" asp-page="/Admin/Orders/Index" role="tab">Manager Order</a>
+            <a class="nav-link" style="color:white" id="v-pills-Category" data-toggle="pill" asp-page="/Admin/Categories/Index" role="tab">Manager Category</a>
         </div>
-    </footer>*@
+        <script>
+            // Get the current URL path
+            var path = window.location.pathname;
+
+            // Loop through each navigation link
+            $(".nav-link").each(function () {
+                // Get the link's href attribute
+                var href = $(this).attr("href");
+
+                // Check if the link's href attribute matches the current URL path
+                if (href === path) {
+                    // Add the "active" class to the link
+                    $(this).addClass("active");
+                }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+
+        @{
+            String data = Context.Session.GetString("Account");
+            Account account = null;
+            String[] name = null;
+            if (data != null)
+            {
+                account = JsonSerializer.Deserialize<Account>(data);
+
+                name = account.Email.Split("@");
+            }
+
+        }
+        <div class="col-10 pb-5">
+             <div class="row ms-1" style="width:100%;height:150px;background-color:aliceblue">
+                 <div class="d-flex flex-row justify-content-between pt-2">
+                    <a class="pe-2 pt-2" asp-page="">Home</a>
+                    <h1  style="margin-top:80px">Admin Controller</h1>
+                    @if (account != null)
+                    {
+                        <span>(@name[0])<a class="link text-dark" asp-page="/Logout" style="height:40px">LogOut</a></span>   
+                       
+                    }
+                    else
+                    {
+                        <a class="pe-2 pt-2" asp-page="/Login">Login</a>
+                    }
+                  
+                 </div>
+                  
+
+
+            </div>
+           
+
+            <div class=""> @RenderBody()</div>
+           
+        </div>
+    </div>
+ 
     <footer class="text-center text-lg-start text-dark"
             style="background-color: #ECEFF1">
         <!-- Section: Social media -->
@@ -119,45 +130,27 @@
                     </div>
                     <!-- Grid column -->
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Products</h6>
-                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #7c4dff; height: 2px" />
-                        <p>
-                            <a href="#!" class="text-dark">Chai</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-dark">Cafe</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-dark">Brands</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-dark">Shoes</a>
-                        </p>
-                    </div>
                     <!-- Grid column -->
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Member</h6>
+                        <h6 class="text-uppercase fw-bold d-flex">Member</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto"
                             style="width: 60px; background-color: #7c4dff; height: 2px" />
                         <p>
-                            <a href="#!" class="text-dark">1</a>
+                            <a href="#!" class="text-dark">Duan</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">2</a>
+                            <a href="#!" class="text-dark">Huan</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">3</a>
+                            <a href="#!" class="text-dark">Duoc</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">4</a>
+                            <a href="#!" class="text-dark">Dung</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-dark">5</a>
+                            <a href="#!" class="text-dark">Hoa</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -186,14 +179,9 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <style>
-        
-    </style>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
+    
 </body>
-
 </html>
