@@ -14,9 +14,9 @@
 </head>
 <body class="vh-100">
    
-    <div class=" d-flex vh-100">
+    <div class=" d-flex ">
         <div class="col-2  nav flex-column nav-pills align-items-center pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color:cadetblue;border-right-color:black">
-            <a class="nav-link" style="color:white" id="v-pills-Dashboard" data-toggle="pill" asp-page="/Admin/Dashboard" asp-page-handler="">Dashboard</a>
+            <a class="nav-link" style="color:white" id="v-pills-Dashboard" data-toggle="pill" asp-page="/Admin/Dashboard/Index" asp-page-handler="">Dashboard</a>
             <a class="nav-link" style="color:white" id="v-pills-Products" data-toggle="pill" asp-page="/Admin/Products/Index" asp-page-handler="">Manager Product</a>
             <a class="nav-link" style="color:white" id="v-pills-Order" data-toggle="pill" asp-page="/Admin/Orders/Index" role="tab">Manager Order</a>
             <a class="nav-link" style="color:white" id="v-pills-Category" data-toggle="pill" asp-page="/Admin/Categories/Index" role="tab">Manager Category</a>
@@ -55,7 +55,7 @@
         <div class="col-10 pb-5">
              <div class="row ms-1" style="width:100%;height:150px;background-color:aliceblue">
                  <div class="d-flex flex-row justify-content-between pt-2">
-                    <a class="pe-2 pt-2" asp-page="">Home</a>
+                    <a class="pe-2 pt-2" tyle="height:40px" asp-page="">Home</a>
                     <h1  style="margin-top:80px">Admin Controller</h1>
                     @if (account != null)
                     {
@@ -64,7 +64,7 @@
                     }
                     else
                     {
-                        <a class="pe-2 pt-2" asp-page="/Login">Login</a>
+                        <a class="pe-2 pt-2" tyle="height:40px" asp-page="/Login">Login</a>
                     }
                   
                  </div>
