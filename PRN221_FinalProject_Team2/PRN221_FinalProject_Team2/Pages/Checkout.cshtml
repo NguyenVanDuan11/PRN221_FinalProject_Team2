@@ -1,0 +1,37 @@
+﻿@page
+@model PRN221_FinalProject_Team2.Pages.CheckoutModel
+<h1>CheckOut</h1>
+<table style="border-collapse:collapse" border="1">
+    <form method="post">
+    <tbody>
+        <tr>
+            <td><label>RequireDate</label></td>
+            <td><input type="date" asp-for="@Model.order.RequiredDate" /></td>
+        </tr>
+        <tr>
+            <td><label>ShipName</label></td>
+            <td><input asp-for="@Model.order.ShipName" /></td>
+        </tr>
+        <tr>
+            <td><label>Ship Address</label></td>
+            <td><input asp-for="@Model.order.ShipAddress" /></td>
+        </tr>
+        <tr>
+            <td><label>Ship City</label></td>
+            <td><input asp-for="@Model.order.ShipCity" /></td>
+        </tr>
+        <tr>
+            <td><label>Ship Country</label></td>
+            <td><input asp-for="@Model.order.ShipCountry" /></td>
+        </tr>
+        <tr>
+            <td><label>Total Price</label></td>
+            <td><input  readonly asp-for="@Model.totalPrice" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Checkout" /></td>
+        </tr>
+    </tbody>
+    </form>
+</table>

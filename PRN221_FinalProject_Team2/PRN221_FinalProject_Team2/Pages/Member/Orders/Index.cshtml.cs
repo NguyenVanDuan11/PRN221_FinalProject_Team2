@@ -139,7 +139,7 @@ namespace PRN221_FinalProject_Team2.Pages.Member.Orders
 
             }
 
-            return NotFound();
+            return RedirectToPage("/Error");
 
         }
 
