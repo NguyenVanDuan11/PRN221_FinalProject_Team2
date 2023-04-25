@@ -37,14 +37,14 @@ namespace PRN221_FinalProject_Team2.Pages
                 if (member.Role == 1)
                 {
                     HttpContext.Session.SetString("admin", JsonSerializer.Serialize(member));
-                    return RedirectToPage("./Admin/Products/Index");
+                    return RedirectToPage("./Admin/Orders/Index");
                 }
                 if (member.Role == 2)
                 {
                     HttpContext.Session.SetString("customer", JsonSerializer.Serialize(member));
                     var cart = new List<CartItem>();
-                    HttpContext.Session.SetString("cart", JsonSerializer.Serialize(cart));
-                    return RedirectToPage("./Member/Orders/Index");
+                    HttpContext.Session.SetString("cart", JsonSerializer.Serialize(cart));                    
+                    return RedirectToPage("/Index");
                 }
             }
 
