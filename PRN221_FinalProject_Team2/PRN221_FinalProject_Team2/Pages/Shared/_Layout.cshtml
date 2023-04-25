@@ -30,16 +30,30 @@
                             string? customer = Context.Session.GetString("customer");
                             string? email = Context.Session.GetString("email");
                         }
+<<<<<<< HEAD
                         
+=======
+                        @if (admin != null || customer != null)
+                        {
+                            if (admin != null)
+                            {
+                                <li class="nav-item"><a class="nav-link  text-light" asp-area="" asp-page="/Users/Index">Account</a></li>
+                                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Admin/Orders/Index">Order</a></li>
+                            }
+
+                            <li class="nav-link text-light" style="margin-left: 800px"><a asp-page="/Logout">Logout</a></li>
+                        }
+>>>>>>> main
                         @if (admin == null && customer == null)
                         {
                             @*<li class="nav-item">
                                 <a class="nav-link text-light" asp-page="/Sigup" style="margin-left: 200px">Register</a>
                             </li>*@
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-page="/Login" style="margin-left: 800px">Login</a>
+                                <a class="nav-link text-light" asp-page="./Login" style="margin-left: 800px">Login</a>
                             </li>
                         }
+<<<<<<< HEAD
                         
                         
                         
@@ -61,6 +75,11 @@
                             </li>
                         }
                         
+=======
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="Cart"><img src="your-image.jpg" alt="">Cart</a>
+                        </li>
+>>>>>>> main
                     </ul>
                 </div>
             </div>

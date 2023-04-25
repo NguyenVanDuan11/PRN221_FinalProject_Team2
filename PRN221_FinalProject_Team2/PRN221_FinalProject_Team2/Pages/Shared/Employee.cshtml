@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PRN221_FinalProject_Team2.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-kHm+po9XnD+1gkg/mW8fhvJ07/7+LXTQdCw+PdnFvTJx9X+NoA+K11kV8+e16jSw" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body class="vh-100">
+   
+    <div class=" d-flex vh-100">
+        <div class="col-2  nav flex-column nav-pills align-items-center pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color:cadetblue;border-right-color:black">
+            <a class="nav-link" style="color:white" id="v-pills-Dashboard" data-toggle="pill" asp-page="/Admin/Dashboard" asp-page-handler="">Dashboard</a>
+            <a class="nav-link" style="color:white" id="v-pills-Products" data-toggle="pill" asp-page="/Admin/Products/Index" asp-page-handler="">Manager Product</a>
+            <a class="nav-link" style="color:white" id="v-pills-Order" data-toggle="pill" asp-page="/Admin/Orders/Index" role="tab">Manager Order</a>
+            <a class="nav-link" style="color:white" id="v-pills-Category" data-toggle="pill" asp-page="/Admin/Categories/Index" role="tab">Manager Category</a>
+        </div>
+        <script>
+            // Get the current URL path
+            var path = window.location.pathname;
+
+            // Loop through each navigation link
+            $(".nav-link").each(function () {
+                // Get the link's href attribute
+                var href = $(this).attr("href");
+
+                // Check if the link's href attribute matches the current URL path
+                if (href === path) {
+                    // Add the "active" class to the link
+                    $(this).addClass("active");
+                }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+
+        @{
+            String data = Context.Session.GetString("Account");
+            Account account = null;
+            String[] name = null;
+            if (data != null)
+            {
+                account = JsonSerializer.Deserialize<Account>(data);
+
+                name = account.Email.Split("@");
+            }
+
+        }
+        <div class="col-10 pb-5">
+             <div class="row ms-1" style="width:100%;height:150px;background-color:aliceblue">
+                 <div class="d-flex flex-row justify-content-between pt-2">
+                    <a class="pe-2 pt-2" asp-page="">Home</a>
+                    <h1  style="margin-top:80px">Admin Controller</h1>
+                    @if (account != null)
+                    {
+                        <span>(@name[0])<a class="link text-dark" asp-page="/Logout" style="height:40px">LogOut</a></span>   
+                       
+                    }
+                    else
+                    {
+                        <a class="pe-2 pt-2" asp-page="/Login">Login</a>
+                    }
+                  
+                 </div>
+                  
+
+
+            </div>
+           
+
+            <div class=""> @RenderBody()</div>
+           
+        </div>
+    </div>
+ 
+    <footer class="text-center text-lg-start text-dark"
+            style="background-color: #ECEFF1">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4 text-white"
+                 style="background-color: darkslategrey">
+            <!-- Left -->
+            <div class="me-5" style="height:5px">
+                <span>Group 2</span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Group 2</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            Is Group so handsome.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold d-flex">Member</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            <a href="#!" class="text-dark">Duan</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Huan</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Duoc</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Dung</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-dark">Hoa</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i> Viet Nam, Hoa Lac, Ha Noi</p>
+                        <p><i class="fas fa-envelope mr-3"></i>fpt.edu.vn</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Copyright -->
+        <div class="text-center p-3"
+             style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+</body>
+</html>

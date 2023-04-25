@@ -1,6 +1,7 @@
 ﻿@page
 @model PRN221_FinalProject_Team2.Pages.Admin.Products.IndexModel
 @{
+	Layout = "~/Pages/Shared/Employee.cshtml";
 	var selectedPage = Model.Page;
 	var numberPage = Model.NumberPage;
 	var search = ViewBag.Search;
@@ -64,6 +65,7 @@
 					<td>@item.Discontinued</td>
 					<td>
 						<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+						
 						<a class="btn btn-danger" asp-page="./Index" asp-page-handler="Delete" asp-route-id="@item.ProductId">Delete</a>
 					</td>
 				</tr>

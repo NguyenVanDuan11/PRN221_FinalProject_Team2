@@ -34,17 +34,24 @@ namespace PRN221_FinalProject_Team2.Pages
             if (member != null)
             {
                 HttpContext.Session.SetString("Account", JsonSerializer.Serialize(member));
+                var cart = new List<CartItem>();
+                HttpContext.Session.SetString("cart", JsonSerializer.Serialize(cart));
                 if (member.Role == 1)
                 {
                     HttpContext.Session.SetString("admin", JsonSerializer.Serialize(member));
-                    return RedirectToPage("./Admin/Products/Index");
+                    return RedirectToPage("./Admin/Orders/Index");
                 }
                 if (member.Role == 2)
                 {
+<<<<<<< HEAD
                     HttpContext.Session.SetString("customer", JsonSerializer.Serialize(member));
                     HttpContext.Session.SetString("email",member.Email);
                     //HttpContext.Session.SetString("customerId",member.CustomerId);
                     return RedirectToPage("./Index");
+=======
+                    HttpContext.Session.SetString("customer", JsonSerializer.Serialize(member));                   
+                    return RedirectToPage("/Index");
+>>>>>>> main
                 }
             }
 
