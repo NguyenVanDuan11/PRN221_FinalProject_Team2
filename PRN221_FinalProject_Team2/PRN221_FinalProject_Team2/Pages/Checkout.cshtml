@@ -1,33 +1,48 @@
 ﻿@page
 @model PRN221_FinalProject_Team2.Pages.CheckoutModel
 <h1>CheckOut</h1>
-<table style="border-collapse:collapse" border="1">
-    <form method="post">
+<table >
+    <form method="post" onsubmit="return validateDates()">
+        
     <tbody>
         <tr>
             <td><label>RequireDate</label></td>
-            <td><input type="date" asp-for="@Model.order.RequiredDate" /></td>
+            <td><input id="d11" type="date" asp-for="@Model.order.RequiredDate" required /></td>
+           
         </tr>
+        <tr> <span asp-validation-for="@Model.order.RequiredDate"></span></tr>
+
         <tr>
             <td><label>ShipName</label></td>
-            <td><input asp-for="@Model.order.ShipName" /></td>
+            <td><input asp-for="@Model.order.ShipName" required /></td>
+           
         </tr>
+        <tr> <span asp-validation-for="@Model.order.ShipName" required></span></tr>
+
         <tr>
             <td><label>Ship Address</label></td>
-            <td><input asp-for="@Model.order.ShipAddress" /></td>
+            <td><input asp-for="@Model.order.ShipAddress" required  /></td>
+            
         </tr>
+        <tr><span asp-validation-for="@Model.order.ShipAddress"></span></tr>
+
         <tr>
             <td><label>Ship City</label></td>
-            <td><input asp-for="@Model.order.ShipCity" /></td>
+            <td><input asp-for="@Model.order.ShipCity" required /></td>
         </tr>
+        <tr><span asp-validation-for="@Model.order.ShipCity"></span></tr>
+
         <tr>
             <td><label>Ship Country</label></td>
-            <td><input asp-for="@Model.order.ShipCountry" /></td>
+            <td><input asp-for="@Model.order.ShipCountry" required /></td>
         </tr>
+        <tr><span asp-validation-for="@Model.order.ShipCountry"></span></tr>
+
         <tr>
             <td><label>Total Price</label></td>
             <td><input  readonly asp-for="@Model.totalPrice" /></td>
         </tr>
+        
         <tr>
             <td></td>
             <td><input type="submit" value="Checkout" /></td>
@@ -35,3 +50,22 @@
     </tbody>
     </form>
 </table>
+<script>
+    function validateDates() {
+        // Get the selected date
+        const selectedDate = new Date(document.getElementById("d11").value);
+
+        // Get the current date
+        const now = new Date();
+
+        // Compare the selected date with the current date
+        if (selectedDate > now) {
+            // Submit the form
+            return true;
+        } else {
+            // Display an error message
+            alert("Selected date must be greater than current date.");
+            return false;
+        }
+    }
+</script>
