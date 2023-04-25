@@ -11,16 +11,14 @@
 <div class="d-flex float-end">
 	<form method="get" class="d-flex">
 		<div class="form-group">
-			<input class="form-control" placeholder="Enter order id..." type="text" name="keyword" value="@Model.CustomerID" />
+			<input class="form-control" placeholder="Enter customer ID..." type="text" name="keyword" value="@Model.CustomerID" />
 		</div>
 		<div class="form-group">
 			<input class="btn btn-primary" type="submit" value="Search" />
 		</div>
 	</form>
 
-	<p>
-		<a class="btn btn-primary" asp-page="Create">Create New</a>
-	</p>
+	
 </div>
 
 
@@ -62,8 +60,7 @@
 					
 				
 					<td>
-						<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
-						<a class="btn btn-danger" asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.OrderId">Delete</a>
+						<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a>
 					</td>
 				</tr>
 			}
