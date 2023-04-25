@@ -37,7 +37,7 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
 				{
 					int total = _db.Orders.Include(c => c.OrderDetails).Count();
 					NumberPage = (int)Math.Ceiling((double)total / (double)pageSize);
-					Orders = await _db.Orders.Include(c => c.OrderDetails).Skip((pageIndex.Value - 1) * pageSize).Take(pageSize).ToListAsync();
+					Orders = await _db.Orders.Include(c => c.OrderDetails).OrderByDescending(x => x.OrderId).Skip((pageIndex.Value - 1) * pageSize).Take(pageSize).ToListAsync();
 					for(int i=0;i<Orders.Count;i++)
 					{
 						for(int j = 0; j < customerList.Count; j++)
@@ -53,7 +53,7 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
 				{
 					int total = _db.Orders.Include(c => c.OrderDetails).Where(C => C.CustomerId== CustomerID).Count();
 					NumberPage = (int)Math.Ceiling((double)total / (double)pageSize);
-					Orders = await _db.Orders.Include(c => c.OrderDetails).Where(C => C.CustomerId == CustomerID).Skip((pageIndex.Value - 1) * pageSize).Take(pageSize).ToListAsync();
+					Orders = await _db.Orders.Include(c => c.OrderDetails).OrderByDescending(x => x.OrderId).Where(C => C.CustomerId == CustomerID).Skip((pageIndex.Value - 1) * pageSize).Take(pageSize).ToListAsync();
 				
 					for (int i = 0; i < Orders.Count; i++)
 					{

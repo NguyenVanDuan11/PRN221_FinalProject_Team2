@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
+using System.Text.Json;
 
 namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
 {
@@ -19,30 +20,34 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
         public Order Order { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _db.Orders == null)
+          if(HttpContext.Session.GetString("admin")!= null)
             {
-                return NotFound();
-            }
-            IList<Customer> customerList = await _db.Customers.ToListAsync();
-            var order = await _db.Orders.FirstOrDefaultAsync(m => m.OrderId == id);
-
-
-            if (order == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                for (int j = 0; j < customerList.Count; j++)
+                if (id == null || _db.Orders == null)
                 {
-                    if (order.CustomerId == customerList[j].CustomerId)
-                    {
-                        order.Customer = customerList[j];
-                    }
+                    return NotFound();
                 }
-                Order = order;
+                IList<Customer> customerList = await _db.Customers.ToListAsync();
+                var order = await _db.Orders.FirstOrDefaultAsync(m => m.OrderId == id);
+
+
+                if (order == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    for (int j = 0; j < customerList.Count; j++)
+                    {
+                        if (order.CustomerId == customerList[j].CustomerId)
+                        {
+                            order.Customer = customerList[j];
+                        }
+                    }
+                    Order = order;
+                }
+                return Page();
             }
-            return Page();
+            return RedirectToPage("/Error");
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -51,6 +56,9 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
             {
                 return Page();
             }
+            var userData = HttpContext.Session.GetString("Account");
+            var acc = JsonSerializer.Deserialize<Account>(userData);
+            Order.EmployeeId = acc.EmployeeId;
             _db.Attach(Order).State = EntityState.Modified;
             try
             {
