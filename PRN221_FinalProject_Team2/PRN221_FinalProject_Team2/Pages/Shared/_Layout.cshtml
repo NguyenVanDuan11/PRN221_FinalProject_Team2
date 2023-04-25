@@ -36,7 +36,8 @@
                                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Account</a></li>
                                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Admin/Orders/Index">Order</a></li>
                             }
-                            <li class="nav-link text-light"><a asp-page="/Logout">Logout</a></li>
+
+                            <li class="nav-link text-light" style="margin-left: 800px"><a asp-page="/Logout">Logout</a></li>
                         }
                         @if (admin == null && customer == null)
                         {
@@ -46,11 +47,10 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-page="/Login" style="margin-left: 800px">Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="your-page.html"><img src="your-image.jpg" alt="">Cart</a>
-                            </li>
                         }
-                        
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="Cart"><img src="your-image.jpg" alt="">Cart</a>
+                        </li>
                     </ul>
                 </div>
             </div>
