@@ -15,9 +15,9 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Users
             _db = db;
         }
 
-        public Account Account { get; set; } = default;
+        public Account Account { get; set; } 
 
-       public async Task<IActionResult> OnGetAsync(int? id)
+       public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null || _db.Accounts == null) 
             {
