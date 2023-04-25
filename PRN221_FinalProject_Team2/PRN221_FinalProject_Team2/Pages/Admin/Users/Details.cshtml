@@ -1,5 +1,5 @@
 ﻿@page
-@model PRN221_FinalProject_Team2.Pages.Users.DetailsModel
+@model PRN221_FinalProject_Team2.Pages.Admin.Users.DetailsModel
 @{
     ViewData["Title"] = "Details";
 }
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Account?.AccountId">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Account.AccountId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
