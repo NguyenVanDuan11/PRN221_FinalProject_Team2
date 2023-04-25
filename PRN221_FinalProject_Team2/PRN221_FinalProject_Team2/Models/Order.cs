@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PRN221_FinalProject_Team2.Models
 {
@@ -16,6 +17,8 @@ namespace PRN221_FinalProject_Team2.Models
         public DateTime? OrderDate { get; set; }
         public DateTime? RequiredDate { get; set; }
         public DateTime? ShippedDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         public decimal? Freight { get; set; }
         public string? ShipName { get; set; }
         public string? ShipAddress { get; set; }

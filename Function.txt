@@ -15,6 +15,11 @@ view oder history/detail(Duẩn Đang làm)
 Huân
 crud product
 crud category
+DashBoad {
+Product :Top 10 most purchased products by mothn .
+Category : Statistic all category by revanue in time(week or moth or year)
+Product/category : statistic 10 best sales product in one category
+}
 
 Dũng
 crud account

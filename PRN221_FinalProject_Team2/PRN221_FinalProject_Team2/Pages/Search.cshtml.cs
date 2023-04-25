@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
+using System.Text.Json;
 
 namespace PRN221_FinalProject_Team2.Pages
 {
@@ -65,6 +66,40 @@ namespace PRN221_FinalProject_Team2.Pages
                 .ToList();
             url = "Search?categoryId=" + search.categoryId + "&min=" + search.min + "&max=" + search.max + "&pageIndex=";
             return Page();
+        }
+
+        public async Task<IActionResult> OnGetAddToCart(int? pid, string url)
+        {
+            if (HttpContext.Session.GetString("Account") == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                var cartJson = HttpContext.Session.GetString("cart");
+                var cart = JsonSerializer.Deserialize<List<CartItem>>(cartJson);
+                var product = _db.Products.FirstOrDefault(x => x.ProductId == pid);
+                if (cart.FirstOrDefault(x => x.ProductId == pid) == null)
+                {
+                    cart.Add(new CartItem
+                    {
+                        ProductId = pid,
+                        ProductName = product.ProductName,
+                        UnitPrice = product.UnitPrice,
+                        Quantity = 1
+                    });
+
+                    TempData["cartmsg"] = "Add success " + product.ProductName + " to cart!";
+                }
+                else
+                {
+                    cart.FirstOrDefault(x => x.ProductId == pid).Quantity++;
+                    TempData["cartmsg"] = "Add success one more " + product.ProductName + " to cart!";
+                }
+                HttpContext.Session.SetString("cart", JsonSerializer.Serialize(cart));
+            }
+
+            return Redirect(url);
         }
     }
 }

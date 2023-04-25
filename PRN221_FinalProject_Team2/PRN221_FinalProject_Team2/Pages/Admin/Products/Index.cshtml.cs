@@ -9,6 +9,8 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Products
     public class IndexModel : PageModel
     {
         private readonly PRN221DBContext _db;
+        [BindProperty]
+        public string OrderId { get; set; }
 
         public IndexModel(PRN221DBContext db)
         {
