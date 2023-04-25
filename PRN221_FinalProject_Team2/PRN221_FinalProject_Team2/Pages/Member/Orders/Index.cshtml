@@ -2,23 +2,53 @@
 @model PRN221_FinalProject_Team2.Pages.Member.Orders.IndexModel
 
 <h2>Order History</h2>
-<form method="get" >
+@{
+    if (TempData["excaption"] != null)
+    {
+        <span class="text-danger">@TempData["excaption"]</span>
+    }
+}
+<form method="get" onsubmit="return validateDates()">
     <div class="row ps-2 pb-2 pt-3">
         <div class="col-4 d-flex justify-content-end">
 
             <label class="pt-2">Start orderdate :</label>
-            <input name="d1" type="date" class="pt-2 ps-2" value="@Model.StartDate" />
+            <input name="d1" type="date" class="pt-2 ps-2" value="@Model.StartDate"   />
         </div>
         <div class="col-6 d-flex justify-content-center">
-            <label class ="pt-2">End orderdate :</label>
-            <input name="d2" type="date" class="pt-2 ps-2" value="@Model.EndDate" />
-            <input type="submit" class="pt-2 ms-2" style="width:80px" value="Filter" />
+            <label class ="pt-2">End orderdate :</label>    
+            <input name="d2" type="date" class="pt-2 ps-2" value="@Model.EndDate"  />
+            <input type="submit" class="pt-2 ms-2" style="width:80px" value="Filter"  />
             
             
         </div>
         <div class="col"></div>
     </div>
 </form>
+<script>
+    function validateDates() {
+        var startDate = document.getElementsByName("d1")[0].value;
+        var endDate = document.getElementsByName("d2")[0].value;
+
+       
+
+        var startYear = parseInt(startDate.substring(0, 4));
+        var endYear = parseInt(endDate.substring(0, 4));
+
+        if ((startYear < 1754 && startYear != 0) || startYear > 9999) {
+            alert("Invalid year for Start Date. Please enter a year greater than 1753 and less than 9999.");
+            return false;
+        }
+
+        if ((endYear < 1754 && endYear != 0) || endYear > 9999) {
+            alert("Invalid year for End Date. Please enter a year greater than 1753 and less than 9999.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -92,7 +122,7 @@
                                 {
                                     <tr>
                                         
-                                        <td><a asp-page="Detail" asp-route-id="@iteam.OrderId" asp-route-pid="@it.ProductId">@iteam.OrderId</a></td>
+                                        <td>@iteam.OrderId</td>
                                         <td>@it.ProductId</td>
                                         <td>@it.Product.ProductName</td>
                                         <td>@it.UnitPrice</td>
