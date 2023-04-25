@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {}
+    "D:\\work\\NET\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {
+    "D:\\work\\NET\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+        "projectUniqueName": "D:\\work\\NET\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
         "projectName": "PRN221_FinalProject_Team2",
-        "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
+        "projectPath": "D:\\work\\NET\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\work\\NET\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\PRN221_FinalProject_Team2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

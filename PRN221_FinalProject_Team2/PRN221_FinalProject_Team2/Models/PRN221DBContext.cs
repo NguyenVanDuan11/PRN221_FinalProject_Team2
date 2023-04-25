@@ -150,6 +150,7 @@ namespace PRN221_FinalProject_Team2.Models
                 entity.HasIndex(e => e.OrderDate, "OrderDate");
 
                 entity.HasIndex(e => e.ShipPostalCode, "ShipPostalCode");
+                
 
                 entity.HasIndex(e => e.ShippedDate, "ShippedDate");
 
