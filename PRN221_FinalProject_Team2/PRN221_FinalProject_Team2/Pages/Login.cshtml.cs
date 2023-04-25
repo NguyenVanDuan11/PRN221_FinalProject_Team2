@@ -37,7 +37,7 @@ namespace PRN221_FinalProject_Team2.Pages
                 if (member.Role == 1)
                 {
                     HttpContext.Session.SetString("admin", JsonSerializer.Serialize(member));
-                    return RedirectToPage("./Admin/Products/Index");
+                    return RedirectToPage("./Admin/Orders/Index");
                 }
                 if (member.Role == 2)
                 {
