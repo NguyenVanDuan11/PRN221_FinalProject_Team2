@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
+using System.Text.Json;
 
 namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
 {
@@ -55,6 +56,9 @@ namespace PRN221_FinalProject_Team2.Pages.Admin.Orders
             {
                 return Page();
             }
+            var userData = HttpContext.Session.GetString("Account");
+            var acc = JsonSerializer.Deserialize<Account>(userData);
+            Order.EmployeeId = acc.EmployeeId;
             _db.Attach(Order).State = EntityState.Modified;
             try
             {
