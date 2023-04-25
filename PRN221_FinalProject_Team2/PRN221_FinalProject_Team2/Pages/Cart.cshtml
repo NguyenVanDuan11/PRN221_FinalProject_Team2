@@ -2,8 +2,12 @@
 @model PRN221_FinalProject_Team2.Pages.CartModel
 @{
 }
-<h1>Page cart</h1>
-
+<h1>Page cart</h1>@{
+		if (@TempData["msg"]!=null)
+		{
+			<span style="height:30px;width:100%;color:red"> @TempData["msg"]</span>
+		}	
+	}
 <table class="table">
 	<thead>
 		<tr>
@@ -11,23 +15,32 @@
 			<th>ProductName</th>
 			<th>UnitPrice</th>
 			<th>Quantity</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach (var item in Model.cartItems)
 		{
+			
 			<tr>
+				
 				<td>@item.ProductId</td>
 				<td>@item.ProductName</td>
 				<td>@item.UnitPrice</td>
-				<td><input type="number" value="@item.Quantity" step="1" /></td>
+				<td><button><a class="btn" asp-page="Cart" asp-route-id="@item.ProductId" asp-page-handler="Minus">-</a></button>  @item.Quantity   <button><a class="btn" asp-page="Cart" asp-route-id="@item.ProductId" asp-page-handler="Add">+</a></button></td>
+				<td><a asp-page="Cart" asp-route-id="@item.ProductId" asp-page-handler="Delete">Delete</a></td>
 			</tr>
 		}
+
 		<tr>
 			<td></td>
 			<td></td>
-			<td></td>
-			<td><button class="btn-success">Check Out</button></td>
+			<td >TotalPrice:</td>
+			<td>@Model.totalPrice</td>
+			
+
+			
+			<td><button class="btn-success" @(Model.totalPrice == 0 ? "disabled" : "") @(Model.totalPrice == 0 ? "hidden" : "") ><a class="btn" asp-page="Checkout" asp-route-totalPrice="@Model.totalPrice">Check Out</a></button></td>
 		</tr>
 	</tbody>
 </table>

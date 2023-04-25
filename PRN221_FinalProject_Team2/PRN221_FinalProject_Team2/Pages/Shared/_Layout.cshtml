@@ -22,19 +22,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-page="/Index">Privacy</a>
                         </li>
 
                         @{
                             string? admin = Context.Session.GetString("admin");
                             string? customer = Context.Session.GetString("customer");
                         }
-                        @if (admin != null || customer != null)
+                        @if (customer != null || customer != null)
                         {
-                            if (admin != null)
+                            if (customer != null)
                             {
-                                <li class="nav-item"><a class="nav-link  text-light" asp-area="" asp-page="/Users/Index">Account</a></li>
-                                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Admin/Orders/Index">Order</a></li>
+                                
+                                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Member/Orders/Index">Order</a></li>
+
                             }
 
                             <li class="nav-link text-light" style="margin-left: 800px"><a asp-page="/Logout">Logout</a></li>
@@ -47,6 +48,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-page="./Login" style="margin-left: 800px">Login</a>
                             </li>
+
                         }
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="Cart"><img src="your-image.jpg" alt="">Cart</a>
