@@ -77,6 +77,12 @@
                             <p><span style="color: green">@TempData["msg"]</span></p>
                         }
                     }
+                    @{
+                        if (TempData["err"] != null)
+                        {
+                            <p><span style="color: red">@TempData["err"]</span></p>
+                        }
+                    }
 
                     <div class="text-center" style="margin-top:50px;">
                         <input type="submit" value="Update" style="background-color: forestgreen" />

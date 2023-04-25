@@ -6,18 +6,18 @@ using System.Text.Json;
 
 namespace PRN221_FinalProject_Team2.Pages
 {
-    public class ChangePasswordModel : PageModel
+    public class ChangePasswordAdminModel : PageModel
     {
         private readonly PRN221DBContext _db;
 
-        public ChangePasswordModel(PRN221DBContext db)
+        public ChangePasswordAdminModel(PRN221DBContext db)
         {
             _db = db;
-            Customer = new Customer();
+            Employee = new Employee();
         }
         [BindProperty]
         public Account Account { get; set; }
-        public Customer Customer { get; set; }
+        public Employee Employee { get; set; }
 
 
         public IActionResult OnGet()
@@ -25,18 +25,18 @@ namespace PRN221_FinalProject_Team2.Pages
             //string? email = HttpContext.Session.GetString("email");
             string? customer = HttpContext.Session.GetString("customer");
             string? admin = HttpContext.Session.GetString("admin");
-            if (customer == null || admin != null)
+            if (customer != null || admin == null)
             {
                 return RedirectToPage("Error");
             }
-            Account acc = JsonSerializer.Deserialize<Account>(customer);
-            Account = _db.Accounts.Include(x => x.Customer).FirstOrDefault(x => x.Email == acc.Email);
+            Account acc = JsonSerializer.Deserialize<Account>(admin);
+            Account = _db.Accounts.Include(x => x.Employee).FirstOrDefault(x => x.Email == acc.Email);
             if (Account == null)
             {
                 return RedirectToPage("Error");
             }
 
-            Customer = Account.Customer;
+            Employee = Account.Employee;
             return Page();
         }
         public void OnPost(string old, string New, string confirm)
@@ -45,8 +45,8 @@ namespace PRN221_FinalProject_Team2.Pages
             string? customer = HttpContext.Session.GetString("customer");
             string? admin = HttpContext.Session.GetString("admin");
 
-            Account acc = JsonSerializer.Deserialize<Account>(customer);
-            Account? account = _db.Accounts.SingleOrDefault(account => account.CustomerId == acc.CustomerId);
+            Account acc = JsonSerializer.Deserialize<Account>(admin);
+            Account? account = _db.Accounts.SingleOrDefault(account => account.EmployeeId == acc.EmployeeId);
             if (old == null || New == null || confirm == null)
             {
                 ViewData["message"] = "Invalid password";

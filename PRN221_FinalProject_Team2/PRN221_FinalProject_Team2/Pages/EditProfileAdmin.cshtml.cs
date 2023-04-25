@@ -45,6 +45,11 @@ namespace PRN221_FinalProject_Team2.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
+            if(Account.Employee.FirstName == null || Account.Employee.LastName == null)
+            {
+                TempData["err"] = "Please insert FirstName and LastName!!!";
+                return Page();
+            }
             _db.Attach(Account).State = EntityState.Modified;
             _db.Attach(Account.Employee).State = EntityState.Modified;
 

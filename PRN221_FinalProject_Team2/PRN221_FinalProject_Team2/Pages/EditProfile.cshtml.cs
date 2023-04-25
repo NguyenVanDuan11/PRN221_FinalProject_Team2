@@ -49,6 +49,11 @@ namespace PRN221_FinalProject_Team2.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
+            if (Account.Customer.CompanyName == null)
+            {
+                TempData["err"] = "Please insert CompanyName";
+                return Page();
+            }
             _db.Attach(Account).State = EntityState.Modified;
             _db.Attach(Account.Customer).State = EntityState.Modified;
 
