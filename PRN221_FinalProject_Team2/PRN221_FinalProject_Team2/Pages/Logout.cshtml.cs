@@ -9,6 +9,7 @@ namespace PRN221_FinalProject_Team2.Pages
         {
             HttpContext.Session.Remove("admin");
             HttpContext.Session.Remove("customer");
+            HttpContext.Session.Remove("Account");
 
             return RedirectToPage("/Index");
         }
