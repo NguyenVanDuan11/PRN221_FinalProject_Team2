@@ -45,7 +45,7 @@ namespace PRN221_FinalProject_Team2.Pages
 
         public async Task<IActionResult> OnGetAddToCart(int? pid, int pageindex)
         {
-            if (HttpContext.Session.GetString("customer") == null)
+            if (HttpContext.Session.GetString("Account") == null)
             {
                 return RedirectToPage("Login");
             }
@@ -63,10 +63,13 @@ namespace PRN221_FinalProject_Team2.Pages
                         UnitPrice = product.UnitPrice,
                         Quantity = 1
                     });
+
+                    TempData["cartmsg"] = "Add success " + product.ProductName + " to cart!";
                 }
                 else
                 {
                     cart.FirstOrDefault(x => x.ProductId == pid).Quantity++;
+                    TempData["cartmsg"] = "Add success one more " + product.ProductName + " to cart!";
                 }
                 HttpContext.Session.SetString("cart", JsonSerializer.Serialize(cart));
             }

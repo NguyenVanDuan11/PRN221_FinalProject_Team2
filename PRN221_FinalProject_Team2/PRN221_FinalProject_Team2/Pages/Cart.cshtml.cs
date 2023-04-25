@@ -18,7 +18,12 @@ namespace PRN221_FinalProject_Team2.Pages
 		public List<CartItem> cartItems { get; set; } = new List<CartItem>();
 		public async Task<IActionResult> OnGet()
         {
-			var cartJson = HttpContext.Session.GetString("cart");
+            if (HttpContext.Session.GetString("Account") == null)
+            {
+                return RedirectToPage("Login");
+            }
+
+            var cartJson = HttpContext.Session.GetString("cart");
 			cartItems = JsonSerializer.Deserialize<List<CartItem>>(cartJson).OrderBy(x => x.ProductId).ToList();
 
 			return Page();
