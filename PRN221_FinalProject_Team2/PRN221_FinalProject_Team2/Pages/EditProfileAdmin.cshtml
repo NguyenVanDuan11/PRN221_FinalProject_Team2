@@ -1,0 +1,121 @@
+﻿@page
+@model PRN221_FinalProject_Team2.Pages.EditProfileAdminModel
+@{
+}
+<section class="products section bg-gray" style="height: 100vh">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 title text-center">
+                <ul class="list-group">
+                    <li class="list-group-item" style="margin-left: 5%;background-color: #1bbb1b"><a href="EditProfileAdmin">Edit profile</a></li>
+                    <li class="list-group-item" style="margin-left: 5%"><a href="ChangePasswordAdmin">Change password</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-9 title text-center" style="margin-left: 4%">
+                <h2 class="text-center" style="font-size: 40px" >Profile</h2>
+                <p style="color:red">@ViewData["message"]</p>
+                <p style="color:green">@ViewData["mess"]</p>
+                
+                <form method="post" class="text-left clearfix">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Employee.EmployeeId" /><br />
+                        
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Employee.EmployeeId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.AccountId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Employee.EmployeeId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Employee.DepartmentId" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Password" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Email" /><br />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.Account.Role" /><br />
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                    <input type="hidden" asp-for="@Model.Account.Employee.EmployeeId" placeholder="Email" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Employee.LastName" placeholder="Last Name" class="form-control" />
+                                    <label>Last Name</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Employee.FirstName" placeholder="First Name" class="form-control" />
+                                    <label>First Name</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Employee.Title" placeholder="Title" class="form-control">
+                                    <label>Title</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Employee.TitleOfCourtesy" placeholder="Title Of Courtesy" class="form-control" id="address">
+                                    <label for="address">Title Of Courtesy</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="date" asp-for="@Model.Account.Employee.BirthDate" placeholder="Birth Date" class="form-control" id="address">
+                                    <label for="address">Birth Date</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="date" asp-for="@Model.Account.Employee.HireDate" placeholder="Hire Date" class="form-control" id="address">
+                                    <label for="address">Hire Date</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin: 10px">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="@Model.Account.Employee.Address" placeholder="Address" class="form-control" id="address">
+                                    <label for="address">Address</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @{
+                        if (TempData["msg"] != null)
+                        {
+                            <p><span style="color: green">@TempData["msg"]</span></p>
+                        }
+                    }
+                    @{
+                        if (TempData["err"] != null)
+                        {
+                            <p><span style="color: red">@TempData["err"]</span></p>
+                        }
+                    }
+                    
+                    <div class="text-center" style="margin-top:50px;">
+                        <input type="submit" value="Update" style="background-color: forestgreen" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
