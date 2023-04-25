@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PRN221_FinalProject_Team2.Models;
 
-namespace PRN221_FinalProject_Team2.Pages.Users
+namespace PRN221_FinalProject_Team2.Pages.Admin.Users
 {
     public class CreateModel : PageModel
     {

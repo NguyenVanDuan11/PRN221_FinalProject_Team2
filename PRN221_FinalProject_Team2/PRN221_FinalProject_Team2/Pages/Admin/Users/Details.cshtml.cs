@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
 
-namespace PRN221_FinalProject_Team2.Pages.Users
+namespace PRN221_FinalProject_Team2.Pages.Admin.Users
 {
     public class DetailsModel : PageModel
     {
@@ -15,16 +15,16 @@ namespace PRN221_FinalProject_Team2.Pages.Users
             _db = db;
         }
 
-        public Account Account { get; set; } = default;
+        public Account Account { get; set; } 
 
-       public async Task<IActionResult> OnGetAync(int? AccountID)
+       public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (AccountID == null || _db.Accounts == null) 
+            if (id == null || _db.Accounts == null) 
             {
                 return NotFound();
             }
 
-            var account = await _db.Accounts.FirstOrDefaultAsync(a => a.AccountId == AccountID);
+            var account = await _db.Accounts.FirstOrDefaultAsync(a => a.AccountId == id);
             if(account == null) 
             {
                 return NotFound();

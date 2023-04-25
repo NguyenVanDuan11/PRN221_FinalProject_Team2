@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PRN221_FinalProject_Team2.Models;
 
-namespace PRN221_FinalProject_Team2.Pages.Users
+namespace PRN221_FinalProject_Team2.Pages.Admin.Users
 {
     public class IndexModel : PageModel
     {
