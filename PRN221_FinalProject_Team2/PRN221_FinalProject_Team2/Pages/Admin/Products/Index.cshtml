@@ -64,6 +64,7 @@
 					<td>@item.Discontinued</td>
 					<td>
 						<a class="btn btn-success" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+						
 						<a class="btn btn-danger" asp-page="./Index" asp-page-handler="Delete" asp-route-id="@item.ProductId">Delete</a>
 					</td>
 				</tr>
