@@ -6,15 +6,15 @@
     @{
         if (TempData["msg"] != null)
         {
-            <p><span>@TempData["msg"]</span></p>
+            <p><span style="color:red">@TempData["msg"]</span></p>
         }
     }
     <form method="post">
         <input asp-for="Account.Email" placeholder="Email(*)"/>
-        <span asp-validation-for="Account.Email"></span><br />
+        <span asp-validation-for="Account.Email" style="color: red"></span><br />
 
         <input asp-for="Account.Password" placeholder="Password(*)"/>
-        <span asp-validation-for="Account.Password"></span><br />
+        <span asp-validation-for="Account.Password" style="color: red"></span><br />
         <label></label>
 
         <button type="submit" value="SignIn" >Log In</button><br />
