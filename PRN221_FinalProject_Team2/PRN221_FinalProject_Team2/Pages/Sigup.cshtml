@@ -5,24 +5,39 @@
 <div class="sigup">
     <form method="post">
         <h1>Register Account</h1>
-        <input type="email" asp-for="Account.Email" placeholder="Email"/>
+        <input type="email" asp-for="Account.Email" placeholder="Email" />
+        <br />
+        <input type="text" asp-for="Account.Customer.CompanyName" placeholder="Company Name" />
         <br />
         <input type="password" asp-for="Account.Password" placeholder="Password" />
         <br />
-        <input type="password" placeholder="Re-Password" />
+        <input type="password" placeholder="Re-Password" name="confirm" />
         <br />
+        @{
+            if (TempData["msg"] != null)
+            {
+                <p><span style="color: red">@TempData["msg"]</span></p>
+            }
+        }
         <button type="submit" value="Register">Register</button>
     </form>
+    @{
+        if (TempData["success"] != null)
+        {
+            <p><span class="alert alert-success" style="color: green">@TempData["success"]</span></p>
+        }
+    }
 </div>
 
 <style>
     .sigup {
         width: 400px;
-        height: 400px;
+        height: 600px;
         border: 1px solid grey;
         border-radius: 10px;
         text-align: center;
         margin-left: 400px;
+        margin-top: 100px;
     }
 
     h2 {
@@ -50,8 +65,8 @@
         color: white;
     }
 
-    .sigup button:hover {
-        font-size: 15px;
-    }
+        .sigup button:hover {
+            font-size: 15px;
+        }
 </style>
 
