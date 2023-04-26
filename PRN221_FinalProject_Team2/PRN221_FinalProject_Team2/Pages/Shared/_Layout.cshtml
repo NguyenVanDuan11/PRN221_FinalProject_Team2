@@ -29,6 +29,14 @@
                             string? admin = Context.Session.GetString("admin");
                             string? customer = Context.Session.GetString("customer");
                             string? email = Context.Session.GetString("email");
+                            string? cart = Context.Session.GetString("cart");
+                            List<CartItem> cartItem = JsonSerializer.Deserialize<List<CartItem>>(cart);
+                            int cartnum = 0;
+                            if (cartItem != null)
+                            {
+                                 cartnum = cartItem.Count();
+                            }
+                           
                         }
                         @if (customer != null || customer != null)
                         {
@@ -36,6 +44,10 @@
                             {
                                 
                                 <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Member/Orders/Index">Order</a></li>
+                                
+                                <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-page="/Cart"><span class="text-danger">(@cartnum)</span>Cart</a></li>
+                               
+                               
 
                             }
 
